@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  align-items: inherit;
+  width: 100%;
+  flex-direction: row;
+  padding: 1rem;
+  box-shadow: inset 0 -1px 0 0 var(--color);
+}
+
+.headerLeft {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.headerRight {
+  display: flex;
+  flex:auto;
+  justify-content: flex-end;
+}
