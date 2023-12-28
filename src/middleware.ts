@@ -1,12 +1,27 @@
-import { type NextRequest, NextResponse } from 'next/server'
- 
+import { NextRequest, NextResponse } from 'next/server'
+import { domainConfig } from './domain.config';
+
+const {
+  protocol,
+  apiPath,
+  suffix,
+  actualPort,
+} = domainConfig;
+
 export function middleware(request: NextRequest) {
-  console.log('in middleware')
-  // use path rewrite to support domain specific routes
-  const domainRespone = rewriteForDomain(request);
-  if (domainRespone) {
-    return domainRespone;
+  if (request.nextUrl.pathname.startsWith(apiPath)) {
+    return rewriteForApiCore(request);
   }
+
+  // use path rewrite to support domain specific routes
+  return rewriteForDomain(request);
+}
+
+function rewriteForApiCore(request: NextRequest) {
+  const domain = parseDomain(request);
+  const pathname = request.nextUrl.pathname.replace(apiPath, '');
+
+  return NextResponse.rewrite(`${protocol}${domain}${suffix}${actualPort}${pathname}`);;
 }
 
 function rewriteForDomain(request: NextRequest) {
@@ -37,5 +52,5 @@ function parseDomain(request: NextRequest) {
 }
 
 export const config = {
-  matcher: '/((?!api|_next/static|_next/image|favicon.ico).*)',
+  matcher: '/((?!_next/static|_next/image|favicon.ico).*)',
 }
