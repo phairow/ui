@@ -19,7 +19,8 @@ export function middleware(request: NextRequest) {
 
 function rewriteForApiCore(request: NextRequest) {
   const domain = parseDomain(request);
-  const pathname = request.nextUrl.pathname.replace(apiPath, '');
+  // const pathname = request.nextUrl.pathname.replace(apiPath, '');
+  const pathname = request.nextUrl.pathname;
 
   return NextResponse.rewrite(`${protocol}${domain}${suffix}${actualPort}${pathname}`);;
 }
@@ -52,5 +53,5 @@ function parseDomain(request: NextRequest) {
 }
 
 export const config = {
-  matcher: '/((?!_next/static|_next/image|favicon.ico).*)',
+  matcher: '/((?!_next/static|_next/image|.*\\..*|favicon.ico).*)',
 }

@@ -1,20 +1,11 @@
 import type { Metadata } from 'next'
-import './globals.css'
 import { loadDomains } from '@/services/domain.service';
 import { loadApp } from '@/services/app.service';
-
-// export async function getSer
 
 // export async function generateMetadata(
 //   { params, searchParams }: Props,
 //   parent: ResolvingMetadata
 // ): Promise<Metadata> {
-//   // read route params
-//   const id = params.id
- 
-//   // fetch data
-//   const product = await fetch(`https://.../${id}`).then((res) => res.json())
- 
 //   // optionally access and extend (rather than replace) parent metadata
 //   const previousImages = (await parent).openGraph?.images || []
  
@@ -26,6 +17,11 @@ import { loadApp } from '@/services/app.service';
 //   }
 // }
 
+export const metadata: Metadata = {
+  title: 'Blog',
+}
+
+export const revalidate = 60;
 
 export async function generateStaticParams() {
   const domains = await loadDomains();
@@ -42,9 +38,14 @@ export default async function RootLayout({
   children: React.ReactNode,
   params: { domain: string },
 }) {
-  const color = '#120774';
-  const backgroundColor = '#f3f1fe';
   const appInfo = await loadApp(domain);
+  const theme = appInfo?.info?.theme;
+  const color = theme?.color ?? '#120774';
+  const backgroundColor = theme?.backgroundColor ?? '#f3f1fe';
+
+  import(`./globals/globals_${theme?.name ?? 'default'}.scss`).catch((error: Error) => {
+    console.error(error);
+  });
 
   return (
     <html lang="en">
@@ -58,10 +59,11 @@ export default async function RootLayout({
       `}
         </style>
       </head>
-      <body>{children}
+      <body>
+        <div>{children}</div>
       <div>domain - {domain}</div>
       <div>app info - {JSON.stringify(appInfo)}</div>
-      </body>
+      </body> 
     </html>
   )
 }
