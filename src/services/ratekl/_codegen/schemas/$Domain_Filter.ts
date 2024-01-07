@@ -42,6 +42,9 @@ export const $Domain_Filter = {
                     database: {
                         type: 'boolean',
                     },
+                    redirect: {
+                        type: 'boolean',
+                    },
                     active: {
                         type: 'boolean',
                     },

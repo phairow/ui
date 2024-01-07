@@ -12,7 +12,8 @@ export type Domain_Filter = {
     fields?: ({
         hostname?: boolean;
         database?: boolean;
+        redirect?: boolean;
         active?: boolean;
-    } | Array<'hostname' | 'database' | 'active'>);
+    } | Array<'hostname' | 'database' | 'redirect' | 'active'>);
 };
 

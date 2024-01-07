@@ -9,6 +9,7 @@
 export type DomainPartial = {
     hostname?: string;
     database?: string;
+    redirect?: string;
     active?: boolean;
 };
 

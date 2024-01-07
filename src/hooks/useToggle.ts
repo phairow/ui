@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-function useToggle(init = false) {
+function useToggle(init = false): [boolean, { toggle: () => void}] {
   const [value, setValue] = useState(init);
   return [
     value,
     {
-      toggle: (e) => {
+      toggle: (e?) => {
         if (e) {
           e.preventDefault();
         }

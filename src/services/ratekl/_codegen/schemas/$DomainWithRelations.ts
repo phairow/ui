@@ -13,6 +13,9 @@ export const $DomainWithRelations = {
             type: 'string',
             isRequired: true,
         },
+        redirect: {
+            type: 'string',
+        },
         active: {
             type: 'boolean',
         },

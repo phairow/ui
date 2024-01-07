@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import FooterFive from '@/layout/footers/footer-5';
 import HeaderFive from '@/layout/headers/header-5';

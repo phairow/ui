@@ -9,6 +9,7 @@
 export type DomainWithRelations = {
     hostname: string;
     database: string;
+    redirect?: string;
     active?: boolean;
 };
 

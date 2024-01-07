@@ -22,7 +22,7 @@ export class coreClient {
 
     constructor(config?: Partial<OpenAPIConfig>, HttpRequest: HttpRequestConstructor = FetchHttpRequest) {
         this.request = new HttpRequest({
-            BASE: config?.BASE ?? 'http://localhost:3333',
+            BASE: config?.BASE ?? 'http://localhost:3333/api/v1',
             VERSION: config?.VERSION ?? '0.0.1',
             WITH_CREDENTIALS: config?.WITH_CREDENTIALS ?? false,
             CREDENTIALS: config?.CREDENTIALS ?? 'include',

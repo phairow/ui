@@ -11,6 +11,9 @@ export const $DomainPartial = {
         database: {
             type: 'string',
         },
+        redirect: {
+            type: 'string',
+        },
         active: {
             type: 'boolean',
         },

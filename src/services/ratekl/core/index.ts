@@ -16,7 +16,7 @@ export const client = (domain:string = `ratekl.com`) => {
   if (client) return client;
     
   const config = {
-    BASE: `${protocol}${domain}${suffix}${port}${apiPath}`,
+    BASE: `${protocol}www.${domain}${suffix}${port}${apiPath}`,
   };
 
   client = new coreClient(config);
