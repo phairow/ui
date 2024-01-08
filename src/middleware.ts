@@ -6,25 +6,35 @@ const {
   protocol,
   apiPath,
   suffix,
+  port,
   actualPort,
 } = domainConfig;
 
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
+
+  // allowing paths with `.` to pass through unless they are for api
+  if (!pathname.startsWith('/api') && /(\..*){1,}/.test(pathname)) {
+    return;
+  }
+
+  // for dev mode, proxy api calls to core
+  if (pathname.startsWith(apiPath)) {
+    return rewriteForApiCore(request, pathname);
+  }
+
   const originalHostname = getHostname(request);
   const originalProtocol = `${getProtocol(request)}://`;
   const redirectProtocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';
-  const redirectHostname =  hasSubdomain(originalHostname) ? originalHostname : `www.${originalHostname}`;
-
+  const redirectDomain = await getRedirectHostForDomain(request);
+  const redirectHostname = redirectDomain ? `www.${redirectDomain}${suffix}${port}`
+    : (hasSubdomain(originalHostname) ? originalHostname : `www.${originalHostname}`);
+  
   if (redirectHostname !== originalHostname || redirectProtocol !== originalProtocol) {
     return NextResponse.redirect(
       `${redirectProtocol}${redirectHostname}${pathname}`,
       301
     );
-  }
-
-  if (pathname.startsWith(apiPath)) {
-    return rewriteForApiCore(request, pathname);
   }
 
   // use path rewrite to support domain specific routes
@@ -39,18 +49,24 @@ function hasSubdomain(hostname: string) {
   // allow each domain to chose a preference naked vs www.
   const clean = hostname.split(':')[0].replace(/\.local$/, '');
   
-  return /(\..+){2,}/.test(clean);
+  return /(\..*){2,}/.test(clean);
 }
 
 const redirectData: any = {};
-async function getRedirectHost(request: NextRequest) {
-  const domain = parseDomain(request)
+async function getRedirectHostForDomain(request: NextRequest) {
+  const domain = parseDomain(request);
 
   if (!redirectData[domain]) {
-    const domainData = await loadDomain(domain);
+    let domainData: any;
+    if (process.env.NODE_ENV === 'production') {
+      domainData = await loadDomain(domain);
+    } else {
+      domainData = await (await fetch(`http://www.${domain}${suffix}${actualPort}/api/v1/domains/${domain}`)).json()
+    }
+
     redirectData[domain] = domainData.redirect || undefined;
   }
-  console.log(redirectData[domain]);
+
   return redirectData[domain];
 }
 
@@ -104,5 +120,5 @@ function parseDomain(request: NextRequest) {
 }
 
 export const config = {
-  matcher: '/((?!_next/static|_next/image|.*\\..*|favicon.ico).*)',
+  matcher: '/((?!_next/static|_next/image|favicon.ico).*)',
 }
