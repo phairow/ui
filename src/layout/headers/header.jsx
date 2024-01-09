@@ -42,7 +42,7 @@ const Header = ({ single_page = false }) => {
           <div className="container-fluid clearfix">
 
             <div className="header-inner d-flex align-items-center">
-              <div className="logo-outer bg-blue py-30 px-85">
+              <div className="logo-outer bg-dark-primary py-30 px-85">
                 <div className="logo">
                   <Link href="/">
                     
@@ -55,7 +55,7 @@ const Header = ({ single_page = false }) => {
                 {/* <!-- Main Menu --> */}
                 <nav className="main-menu navbar-expand-lg">
                   <div className="navbar-header">
-                    <div className="mobile-logo bg-blue p-15">
+                    <div className="mobile-logo bg-dark-primary p-15">
                       <Link href="/">
                         
                           <Image src={logo} alt="logo" />

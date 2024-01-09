@@ -16,7 +16,7 @@ const {text,widget_list} = footer_contents;
 const FooterFour = () => {
   return (
     <>
-      <footer className="main-footer footer-three bg-light-black text-white pt-90">
+      <footer className="main-footer footer-three bg-light-secondary text-white pt-90">
         <div className="container">
           <div className="row">
             <div className="col-lg-3 col-sm-6">
@@ -78,7 +78,7 @@ const FooterFour = () => {
             </div>
           </div>
         </div>
-        <div className="copyright-area bg-blue mt-30">
+        <div className="copyright-area bg-dark-primary mt-30">
           <div className="container">
             <div className="copyright-inner pt-15">
               <div className="social-style-one mb-10">

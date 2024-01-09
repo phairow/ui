@@ -3,18 +3,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import ScrollspyNav from 'react-scrollspy-nav';
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import useToggle from '@/hooks/useToggle';
-import logo from '@/images/ratekl_logo_header.png';
+import rateklLogo from '@/images/ratekl_logo_header.png';
 import Drawer from '@/components_old/common/Drawer';
 import NavMenus from '@/layout/headers/nav-menus';
+import {Slot} from '@/util/AppInfo';
 
-const Header = ({ onePage = false }) => {
+const Header = ({ onePage = false, slot }: {onePage?: boolean, slot: Slot}) => {
   const [showSearch, setShowSearch] = useState(false);
   const [drawer, setValue] = useToggle();
   const handleClick = () => {
     setValue.toggle()
   }
+  const { content = {}, nav = [] , action} = slot;
+  console.log({content, nav, action})
+  const logo = content['logo'] ?? '/images/ratekl_logo_header.png';
+  console.log({logo})
   return (
     <div className="header-upper">
       <div className="container clearfix">
@@ -23,7 +28,7 @@ const Header = ({ onePage = false }) => {
             <div className="logo">
               <Link href="/">
                 
-                  <Image src={logo} alt="logo" />
+                  <img src={logo} alt="logo" height="44" />
                 
               </Link>
             </div>
@@ -35,7 +40,7 @@ const Header = ({ onePage = false }) => {
                 <div className="mobile-logo py-15">
                   <Link href="/">
                     
-                      <Image src={logo} alt="logo" />
+                      <img src={logo} alt="logo" height="44" />
                     
                   </Link>
                 </div>
@@ -48,9 +53,9 @@ const Header = ({ onePage = false }) => {
 
               <div className="navbar-collapse collapse clearfix">
                 {/* nav menu start */}
-                {!onePage && <NavMenus />}
+                {!onePage && nav?.length &&<NavMenus nav={nav} />}
                 {/* nav menu end */}
-                {onePage && <ScrollspyNav
+                {/* {onePage && <ScrollspyNav
                   scrollTargetIds={["home", "about", "services", "portfolio", "pricing", "news"]}
                   offset={0}
                   activeNavClass="is-active"
@@ -64,42 +69,40 @@ const Header = ({ onePage = false }) => {
                     <li><a href="#pricing">pricing</a></li>
                     <li><a href="#news">news</a></li>
                   </ul>
-                </ScrollspyNav>}
+                </ScrollspyNav>} */}
 
               </div>
             </nav>
-
+{/* 
             <div className="nav-search mx-25">
               <button className="fa fa-search" onClick={() => setShowSearch(!showSearch)}></button>
               <form className={`${showSearch ? '' : 'hide'}`}>
                 <input type="text" placeholder="Search" className="searchbox" required />
                 <button type="submit" className="searchbutton fa fa-search"></button>
               </form>
-            </div>
-
-            <div className="menu-btn">
-              <Link href="/contact" className="theme-btn">
-                meet with us
-              </Link>
-            </div>
+            </div> */}
+            { action && action['href'] ?
+              <div className="menu-btn">
+                <Link href={action['href']} className="theme-btn">
+                  {action.title}
+                </Link>
+              </div>
+            : ''
+            }
+            
           </div>
         </div>
       </div>
     
       {/* sidebar start */}
-      <Drawer drawer={drawer} action={setValue.toggle} single_page={onePage} home_nine={""} home_seven={""} single_page_menu={<ScrollspyNav
+      <Drawer nav={nav} drawer={drawer} action={setValue.toggle} single_page={onePage} home_nine={""} home_seven={""} single_page_menu={<ScrollspyNav
         scrollTargetIds={["home", "about", "services", "portfolio", "pricing", "news"]}
         offset={0}
         activeNavClass="is-active"
         scrollDuration="100"
         headerBackground="true"
       > <ul className="navigation onepage clearfix">
-          <li onClick={handleClick}><a href="#home">Home</a></li>
-          <li onClick={handleClick}><a href="#about">about</a></li>
-          <li onClick={handleClick}><a href="#services">services</a></li>
-          <li onClick={handleClick}><a href="#portfolio">portfolio</a></li>
-          <li onClick={handleClick}><a href="#pricing">pricing</a></li>
-          <li onClick={handleClick}><a href="#news">news</a></li>
+        {nav.map((item, i) => <li key={i} onClick={handleClick}><a href={item['href']}>{item.title}</a></li>)}
         </ul>
       </ScrollspyNav>} />
       {/* sidebar end */}

@@ -66,7 +66,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="copyright-area bg-blue">
+        <div className="copyright-area bg-dark-secondary">
           <div className="container">
             <div className="copyright-inner pt-15">
               <div className="social-style-one mb-10">
@@ -76,7 +76,7 @@ const Footer = () => {
                   </a>
                 ))}
               </div>
-              <p>copyright {new Date().getFullYear()} Restly All Rights Reserved.</p>
+              <p>© {new Date().getFullYear()} Simply Piper&apos;s</p>
             </div>
           </div>
         </div>

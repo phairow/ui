@@ -1,11 +1,39 @@
 import Link from 'next/link';
-import { menuData } from '../../data';
+import { NavLink } from '@/util/AppInfo';
 
-const NavMenus = () => {
+const NavMenus = ({nav}: { nav: NavLink[]}) => {
+  const links: JSX.Element[] = [];
+
+  if (nav) {
+    nav.map((navLink, i) => {
+      links.push(
+        (navLink.links?.length ? 
+          <li className="dropdown menu-last"><a href={navLink.href}>{navLink.title}</a>
+            <ul>
+              {navLink.links.map((navSubLink, i) => (
+                <li key={i}>
+                  <Link href={`${navSubLink.href}`}>
+                    {navSubLink.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </li> : 
+          <li key={i}>
+            <Link href={`${navLink.href}`}>
+              {navLink.title}
+            </Link>
+          </li>
+        )
+      )
+    }) 
+  }
+
   return (
     <>
       <ul className="navigation clearfix">
-        <li className="current dropdown"><a href="#">Home</a>
+        {links}
+        {/* <li className="current dropdown"><a href="#">Home</a>
           <ul>
             {menuData.homes.map((menu, i) => (
               <li key={i} className="dropdown"><a href="#">{menu.title}</a>
@@ -100,12 +128,7 @@ const NavMenus = () => {
               </li>
             ))}
           </ul>
-        </li>
-        <li>
-          <Link href="/contact">
-            Contact
-          </Link>
-        </li>
+        </li> */}
       </ul>
     </>
   );

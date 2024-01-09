@@ -1,8 +1,10 @@
 import { useState } from "react";
 import Link from "next/link";
+import { NavLink } from "@/util/AppInfo";
+import FooterContactStyle from "@/layout/footers/footer-contact-style";
 // import "./style.css";
-
-function Drawer({ drawer, action, single_page, single_page_menu, home_nine,home_seven }) {
+function Drawer({nav, drawer, action, single_page, single_page_menu, home_nine,home_seven }) {
+  const navItems: NavLink = nav;
   const [itemSize, setSize] = useState("0px");
   const [item, setItem] = useState("");
   const handler = (e, value) => {
@@ -26,7 +28,7 @@ function Drawer({ drawer, action, single_page, single_page_menu, home_nine,home_
             <div className="col-12">
               <div className={`offcanvas_menu_wrapper ${drawer ? "active" : ""} ${home_nine ? 'home_nine' : ''}`}>
                 <Link href="/"  className="offcanvas-brand text-center mb-40 d-block">
-                    <img src={'/images/ratekl_logo_header.png'} alt="" />
+                    <img src={'/images/simplypipers_logo_header.png'} alt="" />
                 </Link>
                 <div id="menu" className={`text-start ${home_seven ? 'home_seven' : ''}`}>
                   {!single_page && <ul className="offcanvas_main_menu">
@@ -347,23 +349,8 @@ function Drawer({ drawer, action, single_page, single_page_menu, home_nine,home_
                   </ul>
                 </div>
                 <div className="footer-widget-info">
-                  <ul>
-                    <li>
-                      <a href="#">
-                        <i className="fa fa-envelope"></i> support@restly.com
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fa fa-phone"></i> +(642) 342 762 44
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fa fa-map-marker-alt"></i> 442 Belle Terre
-                        St Floor 7, San Francisco, AV 4206
-                      </a>
-                    </li>
+                  <ul className="list-style-two">
+                  <FooterContactStyle style_six={''} home_8={''} />
                   </ul>
                 </div>
               </div>

@@ -61,7 +61,7 @@ body {
   font-weight: 400;
   line-height: 28px;
   font-size: 16px;
-  font-family: "Rubik", sans-serif; }
+  font-family: "Merriweather"; }
 
 a {
   color: #454545;
@@ -522,7 +522,7 @@ a.theme-btn {
   .list-style-one li:before {
     color: white;
     font-size: 14px;
-    content: "\f00c";
+    content: "\f005";
     font-weight: 600;
     margin-top: -4px;
     margin-right: 15px;
@@ -552,7 +552,7 @@ a.theme-btn {
   text-transform: capitalize; }
   .list-style-three li:before {
     font-size: 14px;
-    content: "\f00c";
+    content: "\f005";
     font-weight: 700;
     margin-right: 20px;
     color: #104cba;
@@ -751,8 +751,8 @@ a.theme-btn {
   box-shadow: 0px 0px 33px 0px rgba(0, 0, 0, 0.07); }
 
 /* Background Colors */
-.bg-blue {
-  background-color: #104cba; }
+.bg-dark-primary {
+  background-color: color-mix(in srgb,var(--color),var(--color) 25%); }
 
 .bg-black {
   background-color: #03091F; }
@@ -760,8 +760,8 @@ a.theme-btn {
 .bg-red {
   background-color: #F43336; }
 
-.bg-light-black {
-  background-color: #0e1e2a; }
+.bg-light-secondary {
+  background-color: color-mix(in srgb,var(--secondary-color),var(--secondary-color) 25%) }
 
 .bg-dark-blue {
   background-color: #222f5a; }
@@ -818,7 +818,7 @@ a.theme-btn {
 .home-seven {
   color: #666F9D;
   font-size: 18px;
-  font-family: 'Nunito'; }
+  font-family: 'Merriweather';
   .home-seven p {
     color: #666F9D; }
   .home-seven h1, .home-seven h2, .home-seven h3, .home-seven h4, .home-seven h5, .home-seven h6 {
@@ -875,7 +875,7 @@ a.theme-btn {
 .home-nine .sub-title,
 .home-nine h1, .home-nine h2, .home-nine h3, .home-nine h4, .home-nine h5, .home-nine h6 {
   font-weight: 700;
-  font-family: 'Urbanist', sans-serif; }
+  font-family: 'Merriweather'; }
 
 .home-nine .sub-title {
   font-size: 18px;
@@ -987,7 +987,7 @@ a.theme-btn {
 h1, h2, h3, h4, h5, h6, .success-item .count-text, .pricing-header .price {
   font-weight: 800;
   color: #000000;
-  font-family: "Nunito", sans-serif; }
+  font-family: "Merriweather"; }
 
 .service-normal .icon i, .service-style-two .icon i, .service-three-item .icon i, .feature-item .icon i, .work-progress-item .icon i, .pricing-item-three .icon i {
   font-size: 70px;
@@ -5182,7 +5182,7 @@ h1, h2, h3, h4, h5, h6, .success-item .count-text, .pricing-header .price {
     color: white;
     font-size: 14px;
     text-transform: uppercase;
-    font-family: 'Urbanist', sans-serif; }
+    font-family: 'Merriweather'; }
   .header-nine .main-menu .navbar-collapse li.dropdown .dropdown-btn {
     display: block;
     font-size: 8px;
@@ -6778,7 +6778,7 @@ h1, h2, h3, h4, h5, h6, .success-item .count-text, .pricing-header .price {
     font-weight: 600;
     margin-bottom: 15px;
     color: #2F97F7;
-    font-family: "Rubik", sans-serif; }
+    font-family: "Merriweather"; }
   .success-item.circle-style.color-two .count-text {
     color: #104cba; }
   .success-item.circle-style.color-three .count-text {
@@ -6871,7 +6871,7 @@ h1, h2, h3, h4, h5, h6, .success-item .count-text, .pricing-header .price {
     margin-right: 30px; }
   .success-item.style-five .count-text {
     margin-bottom: 15px;
-    font-family: "Rubik", sans-serif; }
+    font-family: "Merriweather"; }
     .success-item.style-five .count-text.bg-text {
       position: absolute;
       font-size: 120px;
@@ -7173,7 +7173,7 @@ h1, h2, h3, h4, h5, h6, .success-item .count-text, .pricing-header .price {
     bottom: 5px;
     line-height: 1;
     color: #104cba;
-    font-family: "Nunito", sans-serif;
+    font-family: "Merriweather";
     -webkit-transform: translate(-50%);
     -ms-transform: translate(-50%);
     transform: translate(-50%); }
@@ -7272,7 +7272,7 @@ h1, h2, h3, h4, h5, h6, .success-item .count-text, .pricing-header .price {
       opacity: 0.1;
       font-size: 48px;
       font-weight: 700;
-      font-family: 'Urbanist', sans-serif; }
+      font-family: 'Merriweather'; }
   .work-progress-item-five h3 {
     margin-top: 30px;
     margin-bottom: 8px; }
@@ -8288,7 +8288,7 @@ h1, h2, h3, h4, h5, h6, .success-item .count-text, .pricing-header .price {
       text-align: center;
       border-radius: 10px;
       background: #F43336;
-      font-family: "Nunito", sans-serif;
+      font-family: "Merriweather";
       margin: 0px -10px auto auto; }
       .news-five-item .content .date span {
         display: block;
@@ -10662,7 +10662,7 @@ blockquote {
       .action-item .content .bid-dots .bid {
         font-size: 14px;
         font-weight: 500;
-        font-family: 'Urbanist', sans-serif; }
+        font-family: 'Merriweather'; }
         .action-item .content .bid-dots .bid b {
           font-weight: 700; }
       .action-item .content .bid-dots .dots {
@@ -10767,7 +10767,7 @@ blockquote {
     background: #1B2429;
     margin-right: 20px;
     margin-bottom: 10px;
-    font-family: 'Urbanist', sans-serif;
+    font-family: 'Merriweather';
     border: 1.5px solid rgba(255, 255, 255, 0.1); }
     @media only screen and (max-width: 1199px) {
       .collection-filter li {
@@ -10945,7 +10945,7 @@ blockquote {
     color: #A0A4A8;
     font-size: 14px;
     position: absolute;
-    font-family: 'Urbanist', sans-serif;
+    font-family: 'Merriweather';
     width: 30px;
     height: 30px;
     background: rgba(196, 196, 196, 0.1);
@@ -10979,7 +10979,7 @@ blockquote {
     color: #CACCCF;
     font-size: 14px;
     font-weight: 500;
-    font-family: 'Urbanist', sans-serif; }
+    font-family: 'Merriweather'; }
 
 /*******************************************************/
 /**************** 31. Main Footer Style ****************/

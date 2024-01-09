@@ -1,22 +1,24 @@
 
-interface Theme {
+export interface Theme {
   name?: string;
   color?: string;
   backgroundColor?: string;
+  colorSecondary?: string;
+  backgroundColorSecondary?: string;
 }
 
-interface Metadata {
+export interface Metadata {
   name?: string;
   content?: string;
 }
 
-interface Content {
+export interface Content {
   title?: string;
   metadata?: Metadata[];
   sections?: Record<string, string>
 }
 
-interface Section {
+export interface Section {
   title?: string;
   metadata?: Metadata[];
   type?: string;
@@ -24,19 +26,33 @@ interface Section {
   pages?: Record<string, string>
 }
 
-interface Page {
+export interface Page {
   title?: string;
   metadata?: Metadata[];
   type?: string;
   slots?: string[];
 }
 
-interface Slot {
+export interface Action {
+  title: string;
+  type: string;
+}
+
+export interface NavLink {
+  title: string;
+  href: string;
+  links?: NavLink[];
+}
+
+export interface Slot {
   type?: string;
+  content?: Record<string, any>;
+  nav?: NavLink[];
+  action?: NavLink | Action;
   slots?: Slot[];
 }
 
-interface Info {
+export interface Info {
   theme?: Theme;
   content?: Content;
   sections?: Record<string, Section>;

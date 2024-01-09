@@ -14,7 +14,7 @@ const FooterFive = () => {
 
       <div className="footer-sign-up">
         <div className="container">
-          <div className="footer-signup-inner bg-light-black pt-40 pb-25 px-60">
+          <div className="footer-signup-inner bg-light-secondary pt-40 pb-25 px-60">
             <div className="row align-items-center justify-content-between">
               <div className="col-xl-6 col-lg-7">
                 <div className="section-title text-white mb-25 rmb-35">
@@ -96,7 +96,7 @@ const FooterFive = () => {
           </div>
         </div>
       </div>
-      <div className="copyright-area bg-blue text-white mt-30">
+      <div className="copyright-area bg-dark-primary text-white mt-30">
         <div className="container">
           <div className="copyright-inner pt-15">
             <div className="social-style-one mb-10">

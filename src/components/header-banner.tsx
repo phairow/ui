@@ -1,5 +1,6 @@
+import {Slot} from '@/util/AppInfo';
 
-const HeaderBanner = () => {
+const HeaderBanner = ({ slot }: {slot: Slot}) => {
   return (
     <div className="header-top-wrap bg-lighter py-10">
     <div className="container">

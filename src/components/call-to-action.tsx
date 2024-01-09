@@ -1,17 +1,21 @@
 import React from 'react';
+import {Slot} from '@/util/AppInfo'
 
-const CallToAction = () => {
+const CallToAction = ({ slot }: {slot: Slot}) => {
+  const { content = {}, nav = [] , action} = slot;
+
   return (
     <>
-      <section className="call-to-action bg-blue pt-40 pb-15">
+      <section className="call-to-action bg-dark-primary pt-40 pb-15">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-xl-9 col-lg-11">
               <div className="section-title-with-btn">
                 <div className="section-title text-white mb-15">
-                  <h2>Ready to get our professionals solutions</h2>
+                  <h2>{content?.message}</h2>
                 </div>
-                <a href="#" className="theme-btn style-two mb-25">View All Services</a>
+                {action ? <a href={action['href']} className="theme-btn style-two mb-25">{action.title}</a>
+                : ''}
               </div>
             </div>
           </div>

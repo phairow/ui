@@ -45,6 +45,8 @@ export default async function RootLayout({
   const theme = appInfo?.info?.theme;
   const color = theme?.color ?? "#120774";
   const backgroundColor = theme?.backgroundColor ?? "#f3f1fe";
+  const colorSecondary = theme?.colorSecondary ?? "#120774";
+  const backgroundColorSecondary = theme?.backgroundColorSecondary ?? "#f3f1fe";
 
   import(`./globals/globals_${theme?.name ?? "default"}.scss`).catch(
     (error: Error) => {
@@ -60,9 +62,12 @@ export default async function RootLayout({
             :root {
               --color: ${color};
               --background-color: ${backgroundColor};
+              --color-secondary: ${colorSecondary};
+              --background-color-secondary: ${backgroundColorSecondary};
             }
           `}
         </style>
+        <link rel="shortcut icon" href={`/${domain}_favicon.ico`}/>
       </head>
       <body>
         {children}

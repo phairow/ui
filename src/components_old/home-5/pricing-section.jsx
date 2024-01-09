@@ -38,7 +38,7 @@ const PricingSection = () => {
 
   return (
     <>
-      <section className="pricing-section-five bgs-cover bg-blue pt-120 rpt-95 pb-90 rpb-70"
+      <section className="pricing-section-five bgs-cover bg-dark-primary pt-120 rpt-95 pb-90 rpb-70"
         style={{ backgroundImage: `url(${bg_img})` }} id="pricing">
         <div className="container rel">
           <div className="row align-items-center">

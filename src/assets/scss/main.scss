@@ -24,9 +24,7 @@
 }
 
 @font-face {
-    font-family: 'Nunito';
-    src: url('../fonts/Nunito-ExtraLight.woff2') format('woff2'),
-        url('../fonts/Nunito-ExtraLight.woff') format('woff');
+    font-family: 'Merriweather';
     font-weight: 200;
     font-style: normal;
     font-display: swap;
@@ -38,7 +36,7 @@
      font-weight: 400;
      line-height: 28px;
      font-size: 16px;
-     font-family: "Rubik", sans-serif;
+     font-family: "Merriweather";
      overflow-x: hidden;
 }
  a {
@@ -230,13 +228,13 @@
 }
 /** Button style **/
  .theme-btn, a.theme-btn {
-     background: color-mix(in srgb,var(--color),var(--color) 25%);
+     background: color-mix(in srgb,var(--color-secondary),var(--color-secondary) 25%);
      font-size: 16px;
-     color: color-mix(in srgb,var(--background-color),var(--background-color) 25%);
+     color: color-mix(in srgb,var(--background-color-secondary),var(--background-color-secondary) 25%);
      cursor: pointer;
      font-weight: 500;
      text-align: center;
-     border-radius: 5px;
+     border-radius: 5px;    
      padding: 11px 28px;
      -webkit-box-align: center;
      -ms-flex-align: center;
@@ -258,8 +256,8 @@
      padding-right: 35px;
 }
  .theme-btn:hover, a.theme-btn:hover {
-     color: color-mix(in srgb,var(--background-color),var(--background-color) 25%);
-     background: color-mix(in srgb,var(--color),var(--color) 50%);
+     color: color-mix(in srgb,var(--background-color-secondary),var(--background-color-secondary) 25%);
+     background: color-mix(in srgb,var(--color-secondary),var(--background-color-secondary) 20%);
 }
  .theme-btn:hover i, a.theme-btn:hover i {
      margin-left: 15px;
@@ -267,12 +265,14 @@
 }
  .theme-btn.style-two, a.theme-btn.style-two {
      padding: 11px 35px;
+     color: color-mix(in srgb,var(--background-color),var(--background-color) 25%);
      background: color-mix(in srgb,var(--color),var(--color) 25%);
      border: 1px solid color-mix(in srgb,var(--background-color),var(--background-color) 25%);
 }
  .theme-btn.style-two:hover, a.theme-btn.style-two:hover {
-     background: color-mix(in srgb,var(--color),var(--color) 50%);
-     border-color: color-mix(in srgb,var(--color),var(--color) 50%);
+     color: color-mix(in srgb,var(--color),var(--color) 25%);
+     background: color-mix(in srgb,var(--background-color),var(--background-color) 50%);
+     border-color: color-mix(in srgb,var(--background-color),var(--background-color) 50%);
 }
  .theme-btn.style-three, a.theme-btn.style-three {
      padding: 11px 40px;
@@ -303,10 +303,10 @@
      padding: 10px 35px;
      color: color-mix(in srgb,var(--color),var(--color) 50%);
      background: transparent;
-     border: 1px solid color-mix(in srgb,var(--background-color),var(--background-color) 25%);
+     border: 1px solid color-mix(in srgb,var(--background-color),var(--color) 25%);
 }
  .theme-btn.style-six:hover, a.theme-btn.style-six:hover {
-     background: color-mix(in srgb,var(--background-color),var(--background-color) 25%);
+     background: color-mix(in srgb,var(--background-color),var(--color) 10%);
 }
  .theme-btn.style-seven, a.theme-btn.style-seven {
      padding: 13px 33px;
@@ -488,15 +488,15 @@
      margin-top: 20px;
 }
  .list-style-one li:before {
-     color: color-mix(in srgb,var(--background-color),var(--background-color) 25%);
+     color: color-mix(in srgb,var(--color),var(--color) 25%);
      font-size: 14px;
-     content: "\f00c";
+     content: "\f005";
      font-weight: 600;
      margin-top: -4px;
      margin-right: 15px;
      width: 35px;
      height: 35px;
-     background: color-mix(in srgb,var(--color),var(--color) 25%);
+     background: color-mix(in srgb,var(--background-color),var(--background-color) 25%);
      line-height: 35px;
      border-radius: 50%;
      text-align: center;
@@ -521,7 +521,7 @@
 }
  .list-style-three li:before {
      font-size: 14px;
-     content: "\f00c";
+     content: "\f005";
      font-weight: 700;
      margin-right: 20px;
      color: color-mix(in srgb,var(--color),var(--color) 25%);
@@ -734,7 +734,7 @@
      box-shadow: 0px 0px 33px 0px rgba(0, 0, 0, 0.07);
 }
 /* Background Colors */
- .bg-blue {
+ .bg-dark-primary {
      background-color: color-mix(in srgb,var(--color),var(--color) 25%);
 }
  .bg-black {
@@ -743,8 +743,8 @@
  .bg-red {
      background-color: #F43336;
 }
- .bg-light-black {
-     background-color: color-mix(in srgb,var(--color), var(--color) 25%);
+ .bg-light-secondary {
+     background-color: color-mix(in srgb,var(--color-secondary), var(--color-secondary) 25%);
 }
  .bg-dark-blue {
      background-color: color-mix(in srgb,var(--color), var(--color) 25%);
@@ -798,7 +798,7 @@
  .home-seven {
      color: #666F9D;
      font-size: 18px;
-     font-family: 'Nunito';
+     font-family: 'Merriweather';
 }
  .home-seven p {
      color: #666F9D;
@@ -867,7 +867,7 @@
 }
  .home-nine .sub-title, .home-nine h1, .home-nine h2, .home-nine h3, .home-nine h4, .home-nine h5, .home-nine h6 {
      font-weight: 700;
-     font-family: 'Urbanist', sans-serif;
+     font-family: 'Merriweather';
 }
  .home-nine .sub-title {
      font-size: 18px;
@@ -996,7 +996,7 @@
  h1, h2, h3, h4, h5, h6, .success-item .count-text, .pricing-header .price {
      font-weight: 800;
      color: color-mix(in srgb,var(--color),var(--color) 50%);
-     font-family: "Nunito", sans-serif;
+     font-family: "Merriweather"
 }
  .service-normal .icon i, .service-style-two .icon i, .service-three-item .icon i, .feature-item .icon i, .work-progress-item .icon i, .pricing-item-three .icon i {
      font-size: 70px;
@@ -4478,7 +4478,7 @@
      margin: 7px 5px;
 }
  .text-white .navbar-collapse > ul > li > a, .text-white .navbar-collapse > ul > li > a:hover, .text-white .navbar-collapse > ul > li.current > a {
-     color: color-mix(in srgb,var(--background-color),var(--background-color) 25%);
+     color: color-mix(in srgb,var(--color-secondary),var(--color-secondary) 25%);
 }
  @media only screen and (max-width: 991px) {
      .text-white .navbar-collapse > ul > li > a, .text-white .navbar-collapse > ul > li > a:hover, .text-white .navbar-collapse > ul > li.current > a {
@@ -4486,16 +4486,16 @@
     }
 }
  .text-white .top-right .office-time i {
-     color: color-mix(in srgb,var(--background-color),var(--background-color) 25%);
+     color: color-mix(in srgb,var(--color-secondary),var(--color-secondary) 25%);
 }
  .text-white .navbar-header .navbar-toggle .icon-bar {
      background: color-mix(in srgb,var(--background-color),var(--background-color) 25%);
 }
  .text-white .dropdown-btn span {
-     color: color-mix(in srgb,var(--color), var(--color) 50%);
+     color: color-mix(in srgb,var(--background-color-secondary), var(--background-color-secondary) 50%);
 }
  .text-white .mega-title {
-     color: color-mix(in srgb,var(--color),var(--color) 50%);
+     color: color-mix(in srgb,var(--background-color-secondary),var(--background-color-secondary) 50%);
 }
 /* Menu Icons */
  .menu-icons {
@@ -5202,7 +5202,7 @@
      color: color-mix(in srgb,var(--background-color),var(--background-color) 25%);
      font-size: 14px;
      text-transform: uppercase;
-     font-family: 'Urbanist', sans-serif;
+     font-family: 'Merriweather';
 }
  .header-nine .main-menu .navbar-collapse li.dropdown .dropdown-btn {
      display: block;
@@ -7115,7 +7115,7 @@
      font-weight: 600;
      margin-bottom: 15px;
      color: color-mix(in srgb,var(--color),var(--color) 15%);
-     font-family: "Rubik", sans-serif;
+     font-family: "Merriweather";
 }
  .success-item.circle-style.color-two .count-text {
      color: color-mix(in srgb,var(--color),var(--color) 25%);
@@ -7227,7 +7227,7 @@
 }
  .success-item.style-five .count-text {
      margin-bottom: 15px;
-     font-family: "Rubik", sans-serif;
+     font-family: "Merriweather";
 }
  .success-item.style-five .count-text.bg-text {
      position: absolute;
@@ -7573,7 +7573,7 @@
      bottom: 5px;
      line-height: 1;
      color: color-mix(in srgb,var(--color),var(--color) 25%);
-     font-family: "Nunito", sans-serif;
+     font-family: "Merriweather";
      -webkit-transform: translate(-50%);
      -ms-transform: translate(-50%);
      transform: translate(-50%);
@@ -7686,7 +7686,7 @@
      opacity: 0.1;
      font-size: 48px;
      font-weight: 700;
-     font-family: 'Urbanist', sans-serif;
+     font-family: 'Merriweather';
 }
  .work-progress-item-five h3 {
      margin-top: 30px;
@@ -8865,7 +8865,7 @@
      text-align: center;
      border-radius: 10px;
      background: #F43336;
-     font-family: "Nunito", sans-serif;
+     font-family: "Merriweather";
      margin: 0px -10px auto auto;
      font-weight: 600;
 }
@@ -11721,7 +11721,7 @@
  .action-item .content .bid-dots .bid {
      font-size: 14px;
      font-weight: 500;
-     font-family: 'Urbanist', sans-serif;
+     font-family: 'Merriweather';
 }
  .action-item .content .bid-dots .bid b {
      font-weight: 700;
@@ -11840,7 +11840,7 @@
      background: #1B2429;
      margin-right: 20px;
      margin-bottom: 10px;
-     font-family: 'Urbanist', sans-serif;
+     font-family: 'Merriweather';
      border: 1.5px solid rgba(255, 255, 255, 0.1);
 }
  @media only screen and (max-width: 1199px) {
@@ -12044,7 +12044,7 @@
      color: #A0A4A8;
      font-size: 14px;
      position: absolute;
-     font-family: 'Urbanist', sans-serif;
+     font-family: 'Merriweather';
      width: 30px;
      height: 30px;
      background: rgba(196, 196, 196, 0.1);
@@ -12083,7 +12083,7 @@
      color: #CACCCF;
      font-size: 14px;
      font-weight: 500;
-     font-family: 'Urbanist', sans-serif;
+     font-family: 'Merriweather';
 }
 /*******************************************************/
 /**************** 31. Main Footer Style ****************/

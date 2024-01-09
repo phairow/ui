@@ -11,24 +11,27 @@ export default async function Home({params: { domain }}: { params: { domain: str
   const content: JSX.Element[] = [];
   const footers: JSX.Element[] = [];
 
+  let inc = 0;
   page.slots.forEach(slot => {
+    const incr = '' + inc++;
+
     if (slot.type?.startsWith('header')) {
       const component = slotComponents[slot.type];
 
       if (component) {
-        headers.push(component(slot.type));
+        headers.push(component(`${slot.type}_${incr}`, slot));
       }
     } else if (slot.type?.startsWith('footer')) {
       const component = slotComponents[slot.type];
 
       if (component) {
-        footers.push(component(slot.type));
+        footers.push(component(`${slot.type}_${incr}`, slot));
       }
     } else if (slot?.type) {
       const component = slotComponents[slot.type];
 
       if (component) {
-        content.push(component(slot.type));
+        content.push(component(`${slot.type}_${incr}`, slot));
       }
     }
   }); 

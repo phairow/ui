@@ -18,7 +18,7 @@ const HeaderThree = ({ onePage = false }) => {
   return (
     <>
       <header className={`main-header header-three text-white ${headerSticky ? 'fixed-header' : ''}`}>
-        <div className="header-top-wrap bg-blue py-10">
+        <div className="header-top-wrap bg-dark-primary py-10">
           <div className="container">
             <div className="header-top">
               <div className="top-left">
